@@ -35,3 +35,22 @@ fviz_cluster(list(data = random_df, cluster = km.res2$cluster), ellipse.type = "
 
 fviz_dend(hclust(dist(random_df)), k = 3, k_colors = "jco",
           as.ggplot = TRUE, show_labels = FALSE)
+
+# -------------------------
+hopkins(df, n = nrow(df) - 1)
+hopkins(random_df, n = nrow(random_df) - 1)
+
+res1 <- get_clust_tendency(df, n = nrow(df) - 1)
+res1$hopkins_stat
+
+res2 <- get_clust_tendency(random_df, n = nrow(random_df) - 1)
+res2$hopkins_stat
+
+fviz_dist(dist(df), show_labels = TRUE)
+
+......
+
+library("NbClust")
+library("cluster")
+
+fviz_nbclust(df, kmeans, method = "wss") + labs(title = "Elbow")
