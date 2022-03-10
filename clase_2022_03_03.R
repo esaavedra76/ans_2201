@@ -8,6 +8,7 @@ library(cluster)
 library(clValid)
 
 df <- read_excel('D:\\Documents\\DataSpellDirectories\\aprendizaje_no_supervisado_r\\Customer_1.xlsx')
+df <- scale(df)
 
 head(df)
 
@@ -19,7 +20,7 @@ hopkins(df, n = nrow(df) - 1)
 res <- get_clust_tendency(df, n = nrow(df) - 1)
 res$hopkins_stat
 # visual
-fviz_dist(dist(df), show_labels = FALSE) + labs(title = "Datos de Iris")
+fviz_dist(dist(df), show_labels = FALSE) + labs(title = "Datos del Customer")
 
 
 # point 2
@@ -30,6 +31,9 @@ fviz_nbclust(df, kmeans, method = "gap_stat") + labs(title = "Gap statistic")
 nb <- NbClust(df, distance = "euclidean", min.nc = 2, max.nc = 11, method = "kmeans")
 fviz_nbclust(nb)
 
+km.res <- kmeans(df, 2)
+sil <- silhouette(km.res$cluster, dist(df))
+fviz_silhouette(sil, palette = "jco", ggtheme = theme_classic())
 
 # point 3
 # medidas de validación interna
@@ -43,3 +47,23 @@ summary(intern)
 clmethods <- c("hierarchical", "kmeans", "pam")
 stab <- clValid(df, nClust = 2:6, clMethods = clmethods, validation = "stability")
 optimalScores(stab)
+
+#
+km.res1 <- kmeans(df, 2)
+fviz_cluster(list(data = df, cluster = km.res1$cluster), ellipse.type = "norm",
+             geom = "point", stand = FALSE, pallette = "jco",
+             ggtheme = theme_classic())
+
+#Clustering jerárquico
+hc.res <- eclust(df, "hclust", k = 2, hc_metric = "euclidean",
+                 hc_method = "ward.D2", graph = FALSE)
+#Visualizar dendrograma
+fviz_dend(hc.res, show_labels = FALSE, pallette = "jco", as.ggplot = TRUE)
+
+# pam.res <- pam(df, 6)
+fviz_cluster(hc.res, ellipse.type = "norm",
+             geom = "point", stand = FALSE, pallette = "jco",
+             ggtheme = theme_classic())
+
+df1 <- subset(df, hc.res$cluster == 1)
+df2 <- subset(df, hc.res$cluster == 2)
