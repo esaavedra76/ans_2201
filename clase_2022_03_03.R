@@ -7,8 +7,8 @@ library(ggplot2)
 library(cluster)
 library(clValid)
 
-df <- read_excel('D:\\Documents\\DataSpellDirectories\\aprendizaje_no_supervisado_r\\Customer_1.xlsx')
-df <- scale(df)
+df_no_scale <- read_excel('D:\\Documents\\DataSpellDirectories\\aprendizaje_no_supervisado_r\\Customer_1.xlsx')
+df <- scale(df_no_scale)
 
 head(df)
 
@@ -65,5 +65,5 @@ fviz_cluster(hc.res, ellipse.type = "norm",
              geom = "point", stand = FALSE, pallette = "jco",
              ggtheme = theme_classic())
 
-df1 <- subset(df, hc.res$cluster == 1)
-df2 <- subset(df, hc.res$cluster == 2)
+df1 <- subset(df_no_scale, hc.res$cluster == 1)
+df2 <- subset(df_no_scale, hc.res$cluster == 2)
