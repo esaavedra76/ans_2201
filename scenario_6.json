@@ -1,0 +1,151 @@
+{
+  "name": "scenario_6",
+  "perfiles": {
+    "ARRIESGADO": {
+      "participacion": [
+        35,
+        10
+      ],
+      "prob_hombre": 0.8,
+      "nivel_riesgo": 0.8,
+      "capital_comprometido": 0.7,
+      "duracion_interaccion": [
+        90,
+        180
+      ],
+      "jugador_frecuente": 0.2,
+      "tragamonedas": 0.1,
+      "poker": 0.7,
+      "blackjack": 0.7,
+      "roulette": 0.6,
+      "dados": 0.35
+    },
+    "CASUAL": {
+      "participacion": [
+        40,
+        10
+      ],
+      "prob_hombre": 0.65,
+      "nivel_riesgo": 0.4,
+      "capital_comprometido": 0.4,
+      "duracion_interaccion": [
+        30,
+        150
+      ],
+      "jugador_frecuente": 0.7,
+      "tragamonedas": 0.7,
+      "poker": 0.1,
+      "blackjack": 0.3,
+      "roulette": 0.3,
+      "dados": 0.3
+    },
+    "CONSERVADOR": {
+      "participacion": [
+        45,
+        15
+      ],
+      "prob_hombre": 0.6,
+      "nivel_riesgo": 0.2,
+      "capital_comprometido": 0.2,
+      "duracion_interaccion": [
+        30,
+        120
+      ],
+      "jugador_frecuente": 0.5,
+      "tragamonedas": 0.4,
+      "poker": 0.1,
+      "blackjack": 0.1,
+      "roulette": 0.3,
+      "dados": 0.3
+    }
+  },
+  "juegos": {
+    "tragamonedas": {
+      "duracion_interaccion": 0.5,
+      "monto_minimo": 10,
+      "monto_maximo": 10,
+      "victoria": 0.005,
+      "apalancamiento": 1000
+    },
+    "poker": {
+      "duracion_interaccion": 60,
+      "monto_minimo": 1000,
+      "monto_maximo": 100000,
+      "victoria": 0.08,
+      "apalancamiento": 50
+    },
+    "blackjack": {
+      "duracion_interaccion": 45,
+      "monto_minimo": 1000,
+      "monto_maximo": 20000,
+      "victoria": 0.15,
+      "apalancamiento": 10
+    },
+    "roulette": {
+      "duracion_interaccion": 15,
+      "monto_minimo": 500,
+      "monto_maximo": 20000,
+      "victoria": 0.05,
+      "apalancamiento": 20
+    },
+    "dados": {
+      "duracion_interaccion": 5,
+      "monto_minimo": 500,
+      "monto_maximo": 3000,
+      "victoria": 0.067,
+      "apalancamiento": 5
+    }
+  },
+  "ingresos": [
+    {
+      "edades": [
+        0,
+        22
+      ],
+      "ingresos": [
+        2000,
+        8000
+      ]
+    },
+    {
+      "edades": [
+        22,
+        28
+      ],
+      "ingresos": [
+        7000,
+        22000
+      ]
+    },
+    {
+      "edades": [
+        28,
+        35
+      ],
+      "ingresos": [
+        8000,
+        45000
+      ]
+    },
+    {
+      "edades": [
+        35,
+        55
+      ],
+      "ingresos": [
+        12000,
+        75000
+      ]
+    },
+    {
+      "edades": [
+        55,
+        200
+      ],
+      "ingresos": [
+        20000,
+        100000
+      ]
+    }
+  ]
+}
